@@ -1,0 +1,9 @@
+[
+  { "id": "correct-paraphrase", "questionId": "1", "answer": "Roots take water from the soil and keep the plant fixed.", "teacherMarks": 2 },
+  { "id": "partial-uptake", "questionId": "1", "answer": "They absorb minerals from the soil.", "teacherMarks": 1 },
+  { "id": "incorrect", "questionId": "1", "answer": "Roots attract bees and make the flowers colorful.", "teacherMarks": 0 },
+  { "id": "ambiguous", "questionId": "1", "answer": "They support it and help it drink.", "teacherMarks": 1 },
+  { "id": "malformed", "questionId": "1", "answer": "?", "teacherMarks": null },
+  { "id": "correct-evaporation", "questionId": "2", "answer": "At the top surface of the liquid, the water changes into a gas.", "teacherMarks": 2 },
+  { "id": "partial-evaporation", "questionId": "2", "answer": "The liquid changes to water vapor.", "teacherMarks": 1 }
+]

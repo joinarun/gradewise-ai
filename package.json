@@ -1,0 +1,29 @@
+{
+  "name": "gradewise-ai",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/web",
+    "shared/core"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @gradewise/web",
+    "build": "npm run build --workspace @gradewise/web",
+    "test": "npm run test --workspace @gradewise/core && npm run test --workspace @gradewise/web",
+    "typecheck": "npm run typecheck --workspace @gradewise/core",
+    "contracts": "node --experimental-strip-types scripts/contracts.mjs --check",
+    "test:rules": "bash scripts/test-firestore-rules.sh",
+    "benchmark": "node scripts/benchmark.mjs",
+    "proof": "vite --config tests/integration/proof/vite.config.ts --port 4175 --strictPort"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^6.0.0"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "1.13.7"
+  }
+}

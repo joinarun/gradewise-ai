@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "marks": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000,
+      "multipleOf": 0.5
+    },
+    "explanation": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1200
+    },
+    "criteria": {
+      "minItems": 1,
+      "maxItems": 16,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "criterionId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.()-]*$"
+          },
+          "marks": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000,
+            "multipleOf": 0.5
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 600
+          }
+        },
+        "required": [
+          "criterionId",
+          "marks",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "uncertain": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "marks",
+    "explanation",
+    "criteria",
+    "uncertain"
+  ],
+  "additionalProperties": false
+}

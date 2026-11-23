@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "exam": {
+    "name": "Roots and Water",
+    "subject": "Science",
+    "className": "Grade 6",
+    "date": "2026-11-23",
+    "maxMarks": 4,
+    "autoApprove": false
+  },
+  "questions": [
+    {
+      "id": "1",
+      "text": "Mention two functions of roots in plants.",
+      "referenceAnswer": "Roots absorb water and minerals from the soil and anchor the plant in place.",
+      "maxMarks": 2,
+      "criteria": [
+        { "id": "absorption", "description": "Absorbs water or minerals from soil.", "maxMarks": 1, "partialCredit": "Award 1 mark for a clear reference to uptake of water or minerals. Otherwise award 0." },
+        { "id": "anchoring", "description": "Anchors or holds the plant in place.", "maxMarks": 1, "partialCredit": "Award 1 mark for a clear reference to holding the plant in place. Otherwise award 0." }
+      ],
+      "alternatives": ["Takes water from the ground", "Holds the plant steady"],
+      "examples": { "correct": ["Roots draw up water and keep the plant fixed."], "incorrect": ["Roots make flowers bright."] },
+      "constraints": ["Use only the two listed criteria.", "Do not count the same function twice."]
+    },
+    {
+      "id": "2",
+      "text": "Describe where evaporation takes place and what happens to the water.",
+      "referenceAnswer": "Liquid water at the surface changes to water vapor.",
+      "maxMarks": 2,
+      "criteria": [
+        { "id": "surface", "description": "Evaporation occurs at the surface of a liquid.", "maxMarks": 1, "partialCredit": "Award 1 for an explicit reference to the surface; otherwise 0." },
+        { "id": "vapor", "description": "Liquid water becomes water vapor.", "maxMarks": 1, "partialCredit": "Award 1 for describing liquid water turning into a gas or vapor; otherwise 0." }
+      ],
+      "alternatives": ["Top layer", "Changes to gas"],
+      "examples": { "correct": ["At the surface, water turns into gas."], "incorrect": ["It happens below the liquid and makes ice."] },
+      "constraints": ["A reference to heating alone does not earn either mark."]
+    }
+  ],
+  "approvedAt": "2026-11-23T00:00:00.000Z"
+}

@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "number",
+      "const": 1
+    },
+    "exam": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "className": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+        },
+        "maxMarks": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 1000,
+          "multipleOf": 0.5
+        },
+        "autoApprove": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "subject",
+        "className",
+        "date",
+        "maxMarks",
+        "autoApprove"
+      ],
+      "additionalProperties": false
+    },
+    "questions": {
+      "minItems": 1,
+      "maxItems": 60,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.()-]*$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "referenceAnswer": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "maxMarks": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 1000,
+            "multipleOf": 0.5
+          },
+          "criteria": {
+            "minItems": 1,
+            "maxItems": 16,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40,
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.()-]*$"
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "maxMarks": {
+                  "type": "number",
+                  "minimum": 0.5,
+                  "maximum": 1000,
+                  "multipleOf": 0.5
+                },
+                "partialCredit": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                }
+              },
+              "required": [
+                "id",
+                "description",
+                "maxMarks",
+                "partialCredit"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "alternatives": {
+            "maxItems": 12,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 400
+            }
+          },
+          "examples": {
+            "type": "object",
+            "properties": {
+              "correct": {
+                "maxItems": 12,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 400
+                }
+              },
+              "incorrect": {
+                "maxItems": 12,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 400
+                }
+              }
+            },
+            "required": [
+              "correct",
+              "incorrect"
+            ],
+            "additionalProperties": false
+          },
+          "constraints": {
+            "maxItems": 12,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            }
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "referenceAnswer",
+          "maxMarks",
+          "criteria",
+          "alternatives",
+          "examples",
+          "constraints"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "approvedAt": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "exam",
+    "questions",
+    "approvedAt"
+  ],
+  "additionalProperties": false
+}
