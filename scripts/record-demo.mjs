@@ -25,7 +25,7 @@ try {
   await hold(2_500);
   await page.getByRole('link', { name: 'Review', exact: true }).first().click();
   await hold(4_000);
-  await page.getByLabel('Final marks').fill('1.5');
+  await page.getByLabel('Final marks').fill('2');
   await page.getByLabel('Teacher note').fill('Checked against the sample marking criteria.');
   await page.getByRole('button', { name: 'Finalize marks' }).click();
   await expect(page.getByText('Final score saved.')).toBeVisible();

@@ -4,10 +4,10 @@
 
 - Implemented the web, Android, and iOS teacher workspaces, versioned rubric and scoring contracts, source-restricted Firebase AI Logic calls, batch queue, teacher review and CSV export.
 - Registered web, Android and iOS apps on the dedicated `gradewise-ai-2026` Firebase Spark project. Verified no Cloud Billing linkage. App Check debug worked on web and Android. The iOS configuration passed the backend token exchange.
-- Built the web PWA, configured Android APKs and the iOS arm64 simulator app. The local workspace and release assets use synthetic data.
+- Built the web PWA, configured Android APKs and the iOS arm64 simulator app, which installed and launched. The local workspace and release assets use synthetic data.
 - Added the [local verification report](docs/VERIFICATION.md), [deployment guide](docs/DEPLOYMENT.md), and [Devpost draft and recording plan](docs/HACKATHON_SUBMISSION.md).
-- Local verification includes 11 core tests, 3 web data tests, 6 Chrome workflow tests, 9 Android JVM tests, 3 Android emulator workflows, 10 Swift host checks, and Firestore rule tests. The iOS XCTest runner stalled before executing tests.
-- Built a 24-second synthetic teacher-review recording and captured actual web and Android screenshots. The full three-minute recording needs the remaining live AI footage.
+- Local verification includes 11 core tests, 3 web data tests, 6 Chrome workflow tests, 9 Android JVM tests, 3 Android emulator workflows, 10 Swift host checks, and Firestore rule tests. The iOS XCTest runner could not connect to simulator services. Chrome also produced an on-device provisional 2/2 while offline, and the approved score survived an offline reload.
+- Built a 23-second synthetic teacher-review recording and captured actual web, Android, and iOS screenshots. The full three-minute recording needs the remaining live AI footage.
 
 ## Pending
 

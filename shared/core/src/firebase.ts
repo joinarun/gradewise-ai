@@ -2,7 +2,7 @@ import { initializeApp, type FirebaseOptions } from 'firebase/app';
 import { getToken, initializeAppCheck, ReCaptchaEnterpriseProvider, type AppCheck } from 'firebase/app-check';
 import { getAI, getGenerativeModel, GoogleAIBackend, InferenceMode, InferenceSource } from 'firebase/ai';
 import { z } from 'zod';
-import { gradeSchema, rubricResponseSchema } from './contracts.ts';
+import { gradeSchema, parseModelJson, rubricResponseSchema } from './contracts.ts';
 import { InferenceFailure, type Inference, type Receipt } from './engine.ts';
 
 export const DEFAULT_CLOUD_MODEL = 'gemini-3.5-flash-lite';
@@ -154,28 +154,46 @@ function createClient(
       });
       return initialization;
     },
-    async generate(source, kind, prompt): Promise<Receipt> {
+    async generate(source, kind, prompt, constraints): Promise<Receipt> {
       if (source === 'device') {
         if (!promptApi() || !device) throw new InferenceFailure('Enable the on-device model and wait for it to be ready.');
         await initialization;
         if (!deviceReady) throw new InferenceFailure('The on-device model is still initializing.');
       }
-      const model = source === 'device' ? device : cloud?.[kind];
-      if (!model) throw new InferenceFailure('Firebase App Check is not configured.');
+      const ids = source === 'device' ? constraints?.criterionIds : undefined;
+      const controller = ids?.length ? new AbortController() : undefined;
+      const deadline = controller ? setTimeout(() => controller.abort(), 45_000) : undefined;
       try {
+        let model = source === 'device' ? device : cloud?.[kind];
+        if (controller && ids) {
+          const promptOptions = {
+            responseConstraint: deviceGradeSchema(ids),
+            signal: controller.signal,
+          };
+          model = getGenerativeModel(deviceAI, {
+            mode: InferenceMode.ONLY_ON_DEVICE,
+            onDeviceParams: { createOptions: { signal: controller.signal }, promptOptions },
+          }, NO_NETWORK);
+          await model.initializeDeviceModel();
+        }
+        if (!model) throw new InferenceFailure('Firebase App Check is not configured.');
         const { response } = await model.generateContent(prompt);
         const usage = response.usageMetadata;
         return {
           source: response.inferenceSource === InferenceSource.ON_DEVICE ? 'device'
             : response.inferenceSource === InferenceSource.IN_CLOUD ? 'cloud' : 'unknown',
-          text: response.text(),
+          text: ids?.length ? canonicalizeDeviceGrade(response.text()) : response.text(),
           usage: usage ? {
             inputTokens: usage.promptTokenCount ?? 0,
             outputTokens: (usage.candidatesTokenCount ?? 0) + (usage.thoughtsTokenCount ?? 0),
           } : undefined,
         };
       } catch (error) {
+        if (controller?.signal.aborted) throw new InferenceFailure('The on-device model exceeded its response time limit.');
         throw safeError(error, source);
+      } finally {
+        if (deadline !== undefined) clearTimeout(deadline);
+        controller?.abort();
       }
     },
     async extractImage(bytes, mimeType) {
@@ -200,6 +218,43 @@ function createClient(
       }
     },
   };
+}
+
+// The smaller model can omit array entries. Required, named output fields
+// keep each rubric criterion visible to constrained decoding.
+function deviceGradeSchema(ids: readonly string[]) {
+  const score = {
+    type: 'object',
+    properties: { marks: { type: 'number' }, evidence: { type: 'string' } },
+    required: ['marks', 'evidence'],
+  };
+  const { marks: _modelTotal, ...properties } = gradeResponse.properties as Record<string, unknown>;
+  return {
+    type: 'object',
+    properties: {
+      ...properties,
+      criteria: {
+        type: 'object',
+        properties: Object.fromEntries(ids.map((id) => [id, score])),
+        required: ids,
+      },
+    },
+    required: ['criteria', 'explanation', 'uncertain'],
+  };
+}
+
+function canonicalizeDeviceGrade(text: string): string {
+  try {
+    const value = parseModelJson(text);
+    if (!value || typeof value !== 'object' || !('criteria' in value)) return text;
+    const scores = value.criteria;
+    if (!scores || typeof scores !== 'object' || Array.isArray(scores)) return text;
+    const criteria = Object.entries(scores).map(([criterionId, score]) => ({ ...score, criterionId }));
+    const marks = criteria.reduce((sum, score) => sum + (typeof score.marks === 'number' ? score.marks : NaN), 0);
+    return JSON.stringify({ ...value, marks, criteria });
+  } catch {
+    return text;
+  }
 }
 
 function encodeBase64(bytes: Uint8Array): string {

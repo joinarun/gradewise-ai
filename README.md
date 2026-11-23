@@ -4,6 +4,8 @@ GradeWise AI helps teachers apply an approved marking scheme across an entire cl
 
 ![GradeWise AI teacher dashboard](apps/web/screenshots/assessment-overview.png)
 
+[Verified offline grade](apps/web/screenshots/offline-grade.png) · [Android workspace](apps/android/screenshots/teacher-workspace.png) · [iOS workspace](apps/ios/screenshots/teacher-workspace.png)
+
 ## Try the teacher workspace
 
 1. Run the web app locally with Node 24.
@@ -39,7 +41,7 @@ npm run test:e2e --workspace @gradewise/web
 npm run test:rules
 ```
 
-Run `npm run proof` to open the isolated Firebase smoke page at `http://127.0.0.1:4175`. Its buttons exercise the real Firebase on-device and cloud SDK modes on a small synthetic exam. For the automated benchmark, run `npm run benchmark -- device` or `npm run benchmark -- cloud` while the proof server is running. Local cloud automation accepts `GRADEWISE_APPCHECK_TOKEN_FILE` pointing to a registered private debug token file outside source control. See the [verification report](docs/VERIFICATION.md) and [release progress](PROGRESS.md) for the observed results and remaining gates.
+Run `npm run proof` to open the isolated Firebase smoke page at `http://127.0.0.1:4175`. Its buttons exercise the real Firebase on-device and cloud SDK modes on a small synthetic exam. For the automated benchmark, run `npm run benchmark -- device` or `npm run benchmark -- cloud` while the proof server is running. Use `GRADEWISE_KEEP_MODEL=true` for repeated runs in a dedicated, ignored Chrome profile that retains the downloaded model. After the download, `npm run benchmark -- workspace` checks grading, review, and persistence in the production preview on port 4173. Local cloud automation accepts `GRADEWISE_APPCHECK_TOKEN_FILE` pointing to a registered private debug token file outside source control. See the [verification report](docs/VERIFICATION.md) and [release progress](PROGRESS.md) for the observed results and remaining gates.
 
 ## Release
 

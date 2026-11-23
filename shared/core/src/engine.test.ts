@@ -23,7 +23,11 @@ function inference(script: Partial<Record<'device' | 'cloud', unknown>>, configu
     cloudConfigured: configured,
     async deviceAvailability() { return 'available'; },
     async initializeDevice() {},
-    async generate(source, kind, prompt) {
+    async generate(source, kind, prompt, constraints) {
+      if (source === 'device' && kind === 'grade') {
+        assert.deepEqual(constraints?.criterionIds, ['absorption', 'anchoring']);
+        assert.match(prompt, /criteria object must contain all these keys/);
+      }
       calls.push(`${source}:${kind}`);
       assert.match(prompt, /INPUT\n\{/);
       const value = script[source];
