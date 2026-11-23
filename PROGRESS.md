@@ -1,20 +1,21 @@
 # GradeWise AI progress
 
-## Stage 7 · Local delivery and external release gates
+## Stage 7 · Hosted release and submission
 
-- Implemented the web, Android, and iOS teacher workspaces, versioned rubric and scoring contracts, source-restricted Firebase AI Logic calls, batch queue, teacher review and CSV export.
-- Registered web, Android and iOS apps on the dedicated `gradewise-ai-2026` Firebase Spark project. Verified no Cloud Billing linkage. App Check debug worked on web and Android. The iOS configuration passed the backend token exchange.
-- Built the web PWA, configured Android APKs and the iOS arm64 simulator app, which installed and launched. The local workspace and release assets use synthetic data.
-- Added the [local verification report](docs/VERIFICATION.md), [deployment guide](docs/DEPLOYMENT.md), and [Devpost draft and recording plan](docs/HACKATHON_SUBMISSION.md).
-- Local verification includes 11 core tests, 3 web data tests, 6 Chrome workflow tests, 9 Android JVM tests, 3 Android emulator workflows, 10 Swift host checks, and Firestore rule tests. The iOS XCTest runner could not connect to simulator services. Chrome also produced an on-device provisional 2/2 while offline, and the approved score survived an offline reload.
-- In the seven-entry synthetic benchmark, Chrome produced six on-device responses and zero cloud responses. Three of the six scored cases passed validation and matched their teacher references. The other cases went to review.
-- Built a 23-second synthetic teacher-review recording and captured actual web, Android, and iOS screenshots. The full three-minute recording needs the remaining live AI footage.
+- Published the web app at [gradewise-ai-2026.web.app](https://gradewise-ai-2026.web.app/). The site opens over HTTPS with the synthetic exam. Actual Gemini Nano grading, teacher approval, and a score surviving an offline reload were verified on the hosted build.
+- Enabled the Gemini Developer API and Firebase AI Logic and verified App Check enforcement. The Spark project has no Cloud Billing linkage.
+- Verified live Gemini rubric generation and grading on local web, Android, and iOS. Android and iOS obtained SDK App Check tokens. Web and Android confirmed permission-gated cloud fallback, and iOS confirmed Firebase SDK hybrid fallback.
+- On the same six scored synthetic cases, three device responses and four cloud responses matched their teacher references. The reports distinguish review, disagreement, errors, request counts, and hypothetical paid costs.
+- Built the web PWA, Android APKs, and a signed iOS arm64 simulator app. iOS launched successfully. The simulator test service still prevented XCTest execution.
+- Produced a 1:38 English-narrated demonstration with actual cloud, offline, and review footage.
+- Hosted cloud fallback passed with production App Check. Both inference APIs were disabled after testing, and the static site remains accessible.
+- See the [verification report](docs/VERIFICATION.md), [deployment guide](docs/DEPLOYMENT.md), and [Devpost draft and recording plan](docs/HACKATHON_SUBMISSION.md).
 
 ## Pending
 
-- User confirmation of the Gemini Developer API terms in the open Firebase Console. The Mac locked after the approval prompt was reached.
-- Complete the live inference and hosted acceptance steps. The two inference APIs are currently disabled. Start and shutdown scripts are in `scripts/`.
-- Compatible physical Android and iOS hardware is needed to prove native local grades. Test mobile cloud fallback after provider enablement.
-- Publish only after approval and GitHub account access. Complete the Devpost submission after the public repository and video are available.
+- Repeat cloud rubric generation on the hosted site when Gemini capacity is available. Those hosted requests returned temporary HTTP 500 errors.
+- GitHub must authenticate as `joinarun` to create and push `joinarun/gradewise-ai`.
+- Compatible physical Android and iOS hardware is needed to prove native local grades.
+- Add the public repository and YouTube links to the Devpost entry.
 
-Deadline: November 30, 2026 at 2:00 p.m. PST, or December 1 at 3:30 a.m. IST. The dependencies above affect deployment and the footage that can be included.
+The deadline is November 30, 2026 at 2:00 p.m. PST, or December 1 at 3:30 a.m. IST.

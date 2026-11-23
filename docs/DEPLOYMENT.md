@@ -26,3 +26,9 @@ The following scripts manage inference APIs on a previously provisioned GradeWis
 ./scripts/gcp-start.sh gradewise-ai-2026
 ./scripts/gcp-shutdown.sh gradewise-ai-2026
 ```
+
+## Hosted release
+
+The demo is available at [gradewise-ai-2026.web.app](https://gradewise-ai-2026.web.app/). Firebase Hosting version `2bb0238e2539d3ff` was deployed on November 24, 2026 IST. The hosted build passed offline grading and a consented cloud fallback with production App Check. During hosted rubric checks, Gemini returned HTTP 500 high-demand responses. Local rubric creation and approval passed.
+
+Cloud inference was disabled after testing. The public page remains available with its sample exam. The start script restores the APIs for later live sessions.

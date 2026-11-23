@@ -17,6 +17,7 @@
 		440E32F4F804EFAC97D5E5CA /* GradingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FEEF394262CADED48B5CE /* GradingPolicy.swift */; };
 		457026A37AAFBC289B3FCA6C /* question-paper.txt in Resources */ = {isa = PBXBuildFile; fileRef = D287A2BC0CDDC97075757F16 /* question-paper.txt */; };
 		48B642254C4EDA17A8BBF4A0 /* DocumentViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002F7E0D4D12B95A775B90E /* DocumentViews.swift */; };
+		49FF66A39EA4B77FDA0F0549 /* FirebaseLiveSmoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8C4AB8BD86231E6208CA0 /* FirebaseLiveSmoke.swift */; };
 		4E7A99D557A196023DDF0772 /* FirebaseAILogic in Frameworks */ = {isa = PBXBuildFile; productRef = 9C3791EE679502A7DF1005A1 /* FirebaseAILogic */; };
 		545DC2C9C8913EBD768E14E4 /* instructions.json in Resources */ = {isa = PBXBuildFile; fileRef = E32F765157815A714473A1C9 /* instructions.json */; };
 		5D1263FCF62023C591A479B2 /* GradeWiseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDF196871764239D326E10D /* GradeWiseUITests.swift */; };
@@ -58,6 +59,7 @@
 		52476827F97B05CB6430514C /* GradeWise.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = GradeWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60AACC17E611BC4CB7596E35 /* WorkspaceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceStore.swift; sourceTree = "<group>"; };
 		635A1AB6FEB03A914ABF36DD /* GradeWiseUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = GradeWiseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C8C4AB8BD86231E6208CA0 /* FirebaseLiveSmoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLiveSmoke.swift; sourceTree = "<group>"; };
 		7B1C8C8BB18CB2AC694B331E /* FirebaseInference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseInference.swift; sourceTree = "<group>"; };
 		8B089BC69C9947F46B122DE7 /* roots.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = roots.json; sourceTree = "<group>"; };
 		B515687C31D8F199985D610A /* GradeWiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeWiseTests.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				16F492295D55F156C632C5D1 /* DocumentImport.swift */,
 				5002F7E0D4D12B95A775B90E /* DocumentViews.swift */,
 				7B1C8C8BB18CB2AC694B331E /* FirebaseInference.swift */,
+				79C8C4AB8BD86231E6208CA0 /* FirebaseLiveSmoke.swift */,
 				3125A14820D97CD4A1491AB7 /* GradeWiseApp.swift */,
 				C746260F206EDD7A7B282A36 /* GradingContract.swift */,
 				F56FEEF394262CADED48B5CE /* GradingPolicy.swift */,
@@ -367,6 +370,7 @@
 				DBAD18700808571E1FB8F4C9 /* DocumentImport.swift in Sources */,
 				48B642254C4EDA17A8BBF4A0 /* DocumentViews.swift in Sources */,
 				03566009B3A3E79CD97B1F24 /* FirebaseInference.swift in Sources */,
+				49FF66A39EA4B77FDA0F0549 /* FirebaseLiveSmoke.swift in Sources */,
 				F02FA54637007881120DA9F3 /* GradeWiseApp.swift in Sources */,
 				3475264C8CD48C68DC5754E3 /* GradingContract.swift in Sources */,
 				440E32F4F804EFAC97D5E5CA /* GradingPolicy.swift in Sources */,

@@ -1,6 +1,6 @@
 import { initializeApp, type FirebaseOptions } from 'firebase/app';
 import { getToken, initializeAppCheck, ReCaptchaEnterpriseProvider, type AppCheck } from 'firebase/app-check';
-import { getAI, getGenerativeModel, GoogleAIBackend, InferenceMode, InferenceSource } from 'firebase/ai';
+import { getAI, getGenerativeModel, AIError, GoogleAIBackend, InferenceMode, InferenceSource, Schema, type TypedSchema } from 'firebase/ai';
 import { z } from 'zod';
 import { gradeSchema, parseModelJson, rubricResponseSchema } from './contracts.ts';
 import { InferenceFailure, type Inference, type Receipt } from './engine.ts';
@@ -35,11 +35,30 @@ function promptApi() {
 
 const models = new Map<string, ReturnType<typeof createClient>>();
 const gradeResponse = modelSchema(z.toJSONSchema(gradeSchema));
-const rubricResponse = modelSchema(z.toJSONSchema(rubricResponseSchema));
+const cloudGradeResponse = cloudSchema(z.toJSONSchema(gradeSchema));
+const rubricResponse = cloudSchema(z.toJSONSchema(rubricResponseSchema));
 
-// Gemini supports a subset of JSON Schema. Runtime validation enforces the full contract.
+// Firebase's schema format keeps the provider grammar small. Local contract
+// validation still checks array bounds, score increments, and numeric ranges.
+function cloudSchema(node: Record<string, unknown>): TypedSchema {
+  switch (node.type) {
+    case 'object':
+      return Schema.object({
+        properties: Object.fromEntries(Object.entries(node.properties as Record<string, Record<string, unknown>>)
+          .map(([name, property]) => [name, cloudSchema(property)])),
+      });
+    case 'array': return Schema.array({ items: cloudSchema(node.items as Record<string, unknown>) });
+    case 'number': return Schema.number();
+    case 'string': return Schema.string();
+    case 'boolean': return Schema.boolean();
+    default: throw new Error('Unsupported Firebase response schema type.');
+  }
+}
+
+// Keep the generation schema structural. Nested array bounds and numeric ranges
+// can exceed Gemini’s grammar limits. Runtime validation enforces those bounds.
 function modelSchema(value: object): Record<string, unknown> {
-  const supported = new Set(['type', 'properties', 'required', 'items', 'minimum', 'maximum', 'minItems', 'maxItems']);
+  const supported = new Set(['type', 'properties', 'required', 'items']);
   function visit(node: Record<string, unknown>): Record<string, unknown> {
     const fields = Object.entries(node).filter(([key]) => supported.has(key));
     return Object.fromEntries(fields.map(([key, item]) => {
@@ -106,17 +125,17 @@ function createClient(
   let initialization: Promise<void> | undefined;
   const cloud = cloudAI ? {
     rubric: createCloud(cloudAI, rubricResponse, 8_192),
-    grade: createCloud(cloudAI, gradeResponse, 2_048),
+    grade: createCloud(cloudAI, cloudGradeResponse, 2_048),
     probe: createCloud(cloudAI, undefined, 512),
   } : undefined;
-  function createCloud(ai: ReturnType<typeof getAI>, schema: Record<string, unknown> | undefined, maxOutputTokens: number) {
+  function createCloud(ai: ReturnType<typeof getAI>, schema: TypedSchema | undefined, maxOutputTokens: number) {
     return getGenerativeModel(ai, {
       mode: InferenceMode.ONLY_IN_CLOUD,
       inCloudParams: {
         model: cloudModel,
         generationConfig: {
           maxOutputTokens,
-          ...(schema ? { responseMimeType: 'application/json', responseJsonSchema: schema } : {}),
+          ...(schema ? { responseMimeType: 'application/json', responseSchema: schema } : {}),
         },
       },
     }, { timeout: 55_000 });
@@ -267,10 +286,14 @@ function encodeBase64(bytes: Uint8Array): string {
 
 function safeError(error: unknown, source: 'device' | 'cloud'): InferenceFailure {
   if (error instanceof InferenceFailure) return error;
-  const code = String((error as { code?: string } | undefined)?.code ?? '');
   if (source === 'device') return new InferenceFailure('The on-device model is unavailable or could not process this input.');
-  if (/appCheck|app-check|permission|fetch-error|403/i.test(code)) {
-    return new InferenceFailure('Cloud inference failed. Check App Check registration, network and model configuration.');
+  const code = String((error as { code?: string } | undefined)?.code ?? '');
+  const status = error instanceof AIError ? error.customErrorData?.status : undefined;
+  if (status === 429) return new InferenceFailure('Cloud inference reached its quota. Retry when quota is available.');
+  if (status && status >= 500) return new InferenceFailure('Cloud inference is temporarily unavailable. Retry this request.');
+  if (status === 400) return new InferenceFailure('Gemini did not accept this inference request. Check the selected cloud model and its settings.');
+  if (status === 401 || status === 403 || /appCheck|app-check|permission/i.test(code)) {
+    return new InferenceFailure('Cloud inference was denied. Check Firebase App Check and project permissions.');
   }
-  return new InferenceFailure('Cloud inference could not complete. Check the connection, quota or model configuration.');
+  return new InferenceFailure('Cloud inference could not complete. Check the connection and model configuration.');
 }

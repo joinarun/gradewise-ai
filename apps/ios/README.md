@@ -11,10 +11,10 @@ From the repository root:
 ```sh
 xcodebuild -project apps/ios/GradeWise.xcodeproj -scheme GradeWise \
   -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
-  -derivedDataPath apps/ios/Build CODE_SIGNING_ALLOWED=NO build
+  -derivedDataPath apps/ios/Build build
 xcodebuild -project apps/ios/GradeWise.xcodeproj -scheme GradeWise \
   -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
-  -derivedDataPath apps/ios/Build CODE_SIGNING_ALLOWED=NO \
+  -derivedDataPath apps/ios/Build \
   -parallel-testing-enabled NO test
 ```
 
@@ -39,6 +39,14 @@ The minimum deployment target is iOS 17. Apple Foundation Models require iOS 26 
 
 [Firebase App Check on Apple platforms](https://firebase.google.com/docs/app-check/ios/debug-provider)
 
+An opt-in integration test runs the signed Debug simulator app against real Firebase services using the shared synthetic fixtures. With the simulator booted and a privately stored, registered App Check debug token, run the following from the repository root.
+
+```sh
+apps/ios/Scripts/test-live.sh booted /path/to/private-debug-token-file
+```
+
+The script reports SDK App Check, rubric generation, cloud grading, hybrid inference, and the separate device-only result as JSON. Keep normal simulator signing enabled so the App Check SDK can access the simulator keychain.
+
 ## Try the sample
 
 1. Tap **Open sample exam** and review and approve the bundled rubric. Generate a fresh rubric through cloud from the supplied sample documents if Firebase is configured.
@@ -53,4 +61,6 @@ Exams and grades are stored in the app sandbox using an atomic file with iOS com
 
 ## Local verification
 
-Xcode 26.5 built the app and its XCTest targets for the iOS 26.5 Simulator. The ten macOS core checks passed using the production Swift grading code. The registered iOS Firebase debug token was accepted by the App Check service. Simulator runtime verification was blocked by a first-boot migration that also timed out XCTest's connection to the test daemon. A compatible physical iPhone was unavailable for Apple Foundation Models inference. Cloud model requests require a running app and an enabled Gemini Developer API backend.
+Xcode 26.5 built the app and its XCTest targets for the iOS 26.5 Simulator. The ten macOS core checks passed using the production Swift grading code. The simulator launched the app and ran the live Firebase smoke test. XCTest remained blocked at its simulator device-service connection.
+
+On November 24, the signed simulator app verified Firebase App Check through the SDK. Gemini 3.5 Flash-Lite generated a valid two-question rubric and graded the synthetic paraphrase 2/2 with valid evidence. The SDK hybrid session also returned a validated 2/2 grade with Cloud as the observed source. The device-only request encountered an Apple model-runtime error while the OS reported Foundation Models ready. A compatible physical iPhone was unavailable for on-device verification.

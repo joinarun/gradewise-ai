@@ -1,5 +1,6 @@
 package app.gradewise.android
 
+import android.util.Log
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.android.gms.tasks.Tasks
@@ -24,7 +25,7 @@ class FirebaseSmokeTest {
     }
 
     @Test
-    fun cloudPreparesAndGradesSyntheticExam() = runBlocking {
+    fun cloudPreparesAndGradesSyntheticExam(): Unit = runBlocking {
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         assumeTrue(InstrumentationRegistry.getArguments().getString("firebaseSmoke") == "true")
         val firebase = FirebaseInference(instrumentation.targetContext)
@@ -39,14 +40,33 @@ class FirebaseSmokeTest {
 
         val (rubric, telemetry) = firebase.rubric(exam, model)
         assertEquals(Source.CLOUD, telemetry.source)
-        val attempt = firebase.grade(
-            Source.CLOUD, model, rubric.questions.single(),
-            "Roots take water from the soil and keep the plant fixed.",
-        )
+        val answer = Answer("Synthetic Android benchmark", rubric.questions.single().id, "Roots take water from the soil and keep the plant fixed.")
+        val question = rubric.questions.single()
+        val expectLocalUnavailable = InstrumentationRegistry.getArguments().getString("firebaseExpectLocalUnavailable") == "true"
+        val policy = if (expectLocalUnavailable) Policy.PREFER_DEVICE else Policy.CLOUD_ONLY
+        val restricted = evaluate(firebase, policy, false, model, question, answer, false)
+        assertEquals(AnswerStatus.REVIEW, restricted.status)
+        assertTrue(restricted.attempts.none { it.route == Source.CLOUD })
+        assertNull(restricted.finalMarks)
+
+        val evaluation = evaluate(firebase, policy, true, model, question, answer, false)
+        val attempt = evaluation.attempts.single { it.route == Source.CLOUD }
+        if (expectLocalUnavailable) {
+            val local = evaluation.attempts.first()
+            assertEquals(Source.DEVICE, local.route)
+            assertNull(local.result)
+        }
         assertEquals(Source.CLOUD, attempt.source)
         assertNotNull(attempt.result)
         assertEquals(emptyList<String>(), attempt.warnings)
         assertEquals(2.0, checkNotNull(attempt.result).marks, 0.0)
+        assertEquals(AnswerStatus.PROVISIONAL, evaluation.status)
+        Log.i(
+            "GradeWiseFirebaseSmoke",
+            "Rubric: ${telemetry.source}, ${telemetry.promptTokens} input tokens, ${telemetry.outputTokens} output tokens, " +
+                "${telemetry.latencyMillis} ms. Grade: ${attempt.source}, ${attempt.promptTokens} input tokens, " +
+                "${attempt.outputTokens} output tokens, ${attempt.latencyMillis} ms, ${attempt.result.marks}/2.0 marks.",
+        )
     }
 
     @Test

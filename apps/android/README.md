@@ -21,12 +21,12 @@ The Compose test opens the synthetic exam, enters a teacher score, and checks th
 2. Place the Firebase client configuration at app/google-services.json. The app can build without this ignored file for teacher-only use.
 3. Run a debug build and use Settings to make a synthetic test request. Find the debug token locally in Logcat and register it in Firebase App Check. Keep debug tokens out of screenshots, transcripts, and version control.
 4. Register Play Integrity and the release signing SHA-256 before distributing a production build. Debug App Check is compiled only into the debug variant.
-5. For live verification, install the test APK alongside the app with the registered token. Run the desired test with ADB to preserve app data. Use a supported physical device and a ready Gemini Nano model for the on-device check. Disconnect the test device before running the local-inference or offline-recovery tests.
+5. For live verification, install the test APK alongside the app with the registered token. Run the desired test with ADB to preserve app data. Set firebaseExpectLocalUnavailable on an emulator to exercise fallback after the on-device attempt fails. Use a supported physical device and a ready Gemini Nano model for the on-device check. Disconnect the test device before running the local-inference or offline-recovery tests.
 
 ```sh
 ./gradlew assembleDebugAndroidTest
 adb install -r app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
-adb shell am instrument -w -e firebaseAppCheckSmoke true -e firebaseSmoke true app.gradewise.android.test/androidx.test.runner.AndroidJUnitRunner
+adb shell am instrument -w -e firebaseAppCheckSmoke true -e firebaseSmoke true -e firebaseExpectLocalUnavailable true app.gradewise.android.test/androidx.test.runner.AndroidJUnitRunner
 adb shell am instrument -w -e firebaseLocalSmoke true app.gradewise.android.test/androidx.test.runner.AndroidJUnitRunner
 adb shell am instrument -w -e firebaseOfflineSmoke true app.gradewise.android.test/androidx.test.runner.AndroidJUnitRunner
 ```
@@ -39,7 +39,13 @@ The demo cloud project is intended for synthetic or non-sensitive material. Impo
 - All nine JVM tests passed. Three instrumented checks passed in airplane mode, covering teacher review, local OCR for PNG and image-only PDF, and unresolved cloud-only grading.
 - A finalized teacher score and approved synthetic exam remained available after a cold process restart.
 - The Android SDK exchanged the registered App Check debug secret for a signed token against Firebase.
-- The emulator reported Gemini Nano unavailable. Gemini on-device inference requires compatible physical hardware, and live cloud Gemini requests await project activation.
+- The emulator reported Gemini Nano unavailable. Successful on-device inference still requires verification on compatible physical hardware.
+
+## Live verification on November 24, 2026
+
+- Firebase App Check returned a signed token after registering the emulator debug secret.
+- Gemini 3.5 Flash-Lite returned a valid synthetic rubric through Firebase AI Logic. The SDK reported cloud inference, 232 input tokens, 398 output tokens, and 4,474 ms.
+- With student cloud consent declined, the unavailable on-device route kept the answer in review without a cloud attempt. With consent granted, Firebase reported cloud grading, 421 input tokens, 130 output tokens, and 2,504 ms. The provisional score matched the synthetic benchmark of 2/2.
 
 - [Firebase AI Logic Android hybrid setup](https://firebase.google.com/docs/ai-logic/hybrid/android/get-started)
 - [Android App Check debug provider](https://firebase.google.com/docs/app-check/android/debug-provider)

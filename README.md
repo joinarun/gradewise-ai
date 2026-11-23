@@ -6,6 +6,8 @@ GradeWise AI helps teachers apply an approved marking scheme across an entire cl
 
 [Verified offline grade](apps/web/screenshots/offline-grade.png) · [Android workspace](apps/android/screenshots/teacher-workspace.png) · [iOS workspace](apps/ios/screenshots/teacher-workspace.png)
 
+[Open the hosted demo](https://gradewise-ai-2026.web.app/)
+
 ## Try the teacher workspace
 
 1. Run the web app locally with Node 24.

@@ -23,10 +23,10 @@ Replace any unverified shot with a factual caption. Capture the dashboard, pack 
 
 ## Release checklist
 
-- [ ] Working Firebase AI Logic runtime and source attribution
-- [ ] Local and cloud behavior recorded on verified platforms
+- [x] Working Firebase AI Logic runtime and source attribution
+- [x] Recorded genuine web local and cloud behavior and captured the native workspaces
 - [ ] Public repository approved and published with Apache 2.0 license
-- [ ] Hosted demo opened and checked as a new user
+- [x] Hosted demo opened and checked as a new user
 - [ ] Public YouTube URL with English narration or subtitles
 - [ ] Devpost description, repository link, and selected platform categories
 
@@ -67,3 +67,9 @@ Replace any unverified shot with a factual caption. Capture the dashboard, pack 
 *Show platform footage from builds that ran successfully. Replace the repository end card with the actual published URL.*
 
 The reproducible local clip shows synthetic rubric inspection, teacher scoring, and CSV export. Run the production preview on port 4173, then run `node scripts/record-demo.mjs`. The clip is available under `artifacts/demo/` and can be edited into the final recording.
+
+## Recorded demonstration
+
+The 1:38 English-narrated MP4 is generated at `artifacts/GradeWise-AI-Hackathon-Demo.mp4`. It includes actual local cloud rubric generation and consented fallback, hosted offline device grading, teacher review and export, and screenshots of both native workspaces. The public YouTube upload and Devpost entry remain pending.
+
+To reproduce the edit on macOS with FFmpeg and the Samantha voice, pass the successful cloud and offline recordings and the teacher-review clip to `scripts/assemble-demo.sh`. The `cloud-workspace` and `workspace` benchmark modes accept `GRADEWISE_WORKSPACE_VIDEO` for capturing fresh clips.
