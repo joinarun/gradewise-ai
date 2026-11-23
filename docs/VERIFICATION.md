@@ -22,6 +22,22 @@ Chrome ran a genuine offline inference using a downloaded on-device model. Early
 
 The Firebase AI Logic and Gemini Developer API endpoints are disabled. The temporary App Check debug registrations were revoked after the attestation checks. Cloud model agreement and API savings are unmeasured.
 
+## Synthetic offline benchmark
+
+Chrome ran six genuine on-device evaluations while offline. Three yielded validated scores and all three matched the teacher reference. The other three were routed to review because of response-schema or evidence failures. The malformed entry was routed to review before inference. Mean latency across the six completed attempts was 4.68 seconds. The separate cold single-answer smoke took 23.71 seconds. There were zero cloud inference calls in these offline runs.
+
+| Synthetic case | Teacher reference | GradeWise outcome |
+| --- | --- | --- |
+| Correct roots paraphrase | 2 | Provisional 2 |
+| Partial roots answer | 1 | Review due to unexpected response fields |
+| Incorrect roots answer | 0 | Provisional 0 |
+| Ambiguous roots answer | 1 | Review due to missing support for an awarded criterion |
+| Malformed entry | No score | Review before inference |
+| Correct evaporation answer | 2 | Provisional 2 |
+| Partial evaporation answer | 1 | Review due to unexpected response fields |
+
+This small benchmark measures agreement and response validation on the included synthetic cases. Half of the cases with teacher marks had a validated model proposal.
+
 ## Release gates
 
 - Live cloud rubric generation, grading and consented fallback after Gemini enablement.

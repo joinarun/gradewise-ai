@@ -7,6 +7,7 @@
 - Built the web PWA, configured Android APKs and the iOS arm64 simulator app, which installed and launched. The local workspace and release assets use synthetic data.
 - Added the [local verification report](docs/VERIFICATION.md), [deployment guide](docs/DEPLOYMENT.md), and [Devpost draft and recording plan](docs/HACKATHON_SUBMISSION.md).
 - Local verification includes 11 core tests, 3 web data tests, 6 Chrome workflow tests, 9 Android JVM tests, 3 Android emulator workflows, 10 Swift host checks, and Firestore rule tests. The iOS XCTest runner could not connect to simulator services. Chrome also produced an on-device provisional 2/2 while offline, and the approved score survived an offline reload.
+- In the seven-entry synthetic benchmark, Chrome produced six on-device responses and zero cloud responses. Three of the six scored cases passed validation and matched their teacher references. The other cases went to review.
 - Built a 23-second synthetic teacher-review recording and captured actual web, Android, and iOS screenshots. The full three-minute recording needs the remaining live AI footage.
 
 ## Pending
