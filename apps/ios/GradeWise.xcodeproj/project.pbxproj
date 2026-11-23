@@ -1,0 +1,698 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03566009B3A3E79CD97B1F24 /* FirebaseInference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1C8C8BB18CB2AC694B331E /* FirebaseInference.swift */; };
+		238315B73185B6F06B8AC25C /* grading-result.v1.json in Resources */ = {isa = PBXBuildFile; fileRef = DA0A9754F1A1885147EB2B23 /* grading-result.v1.json */; };
+		2728471A45D67811D53ADC7D /* rubric-response.v1.json in Resources */ = {isa = PBXBuildFile; fileRef = B5DA06289BA221563385AB7E /* rubric-response.v1.json */; };
+		29EF1F263A77E3BCF5682807 /* WorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C9DB18D13BB714BF435563 /* WorkspaceView.swift */; };
+		30532A447CBFBBAF14FB3139 /* GradingPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6016EFBC91EE8EBB3951B /* GradingPrompts.swift */; };
+		3475264C8CD48C68DC5754E3 /* GradingContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746260F206EDD7A7B282A36 /* GradingContract.swift */; };
+		3A99A18CA8D02D1F90285601 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9E10B89B0C153335AF20F0 /* FirebaseAppCheck */; };
+		440E32F4F804EFAC97D5E5CA /* GradingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FEEF394262CADED48B5CE /* GradingPolicy.swift */; };
+		457026A37AAFBC289B3FCA6C /* question-paper.txt in Resources */ = {isa = PBXBuildFile; fileRef = D287A2BC0CDDC97075757F16 /* question-paper.txt */; };
+		48B642254C4EDA17A8BBF4A0 /* DocumentViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002F7E0D4D12B95A775B90E /* DocumentViews.swift */; };
+		4E7A99D557A196023DDF0772 /* FirebaseAILogic in Frameworks */ = {isa = PBXBuildFile; productRef = 9C3791EE679502A7DF1005A1 /* FirebaseAILogic */; };
+		545DC2C9C8913EBD768E14E4 /* instructions.json in Resources */ = {isa = PBXBuildFile; fileRef = E32F765157815A714473A1C9 /* instructions.json */; };
+		5D1263FCF62023C591A479B2 /* GradeWiseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDF196871764239D326E10D /* GradeWiseUITests.swift */; };
+		5EFA00F131ED72AFE986C37B /* WorkspaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AACC17E611BC4CB7596E35 /* WorkspaceStore.swift */; };
+		75D0A5B9625AF41FA3CFB75C /* answer-key.txt in Resources */ = {isa = PBXBuildFile; fileRef = E7A5ABF996F88FE5F7E5729C /* answer-key.txt */; };
+		84D2036FD31EA2A92CB3DEF9 /* GradeWiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B515687C31D8F199985D610A /* GradeWiseTests.swift */; };
+		8A89974F11364FC8B90BB9EC /* roots.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B089BC69C9947F46B122DE7 /* roots.json */; };
+		90FBD477663A2F1CDBB2B702 /* WorkspaceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0605AEFDB3FDACC5927899 /* WorkspaceModels.swift */; };
+		D3E341848210683A0DD6C94D /* ReviewViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FF6FAFD37351E3183DBEE /* ReviewViews.swift */; };
+		DA98151FF1EBEA4D05BE7CF1 /* SampleExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A27EB4FE9D0415BD564E81 /* SampleExam.swift */; };
+		DBAD18700808571E1FB8F4C9 /* DocumentImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F492295D55F156C632C5D1 /* DocumentImport.swift */; };
+		F02FA54637007881120DA9F3 /* GradeWiseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3125A14820D97CD4A1491AB7 /* GradeWiseApp.swift */; };
+		F12DFD355FA801CDFB865004 /* roots.v1.json in Resources */ = {isa = PBXBuildFile; fileRef = D7EA740CA16A53394EF473DE /* roots.v1.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4FECBC0DAE28E606B6C328A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6385F185240658FA17E6B950 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 675FE54C453B270C5F7252B3;
+			remoteInfo = GradeWise;
+		};
+		E0BC411AC724156F553F6EC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6385F185240658FA17E6B950 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 675FE54C453B270C5F7252B3;
+			remoteInfo = GradeWise;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0CDF196871764239D326E10D /* GradeWiseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeWiseUITests.swift; sourceTree = "<group>"; };
+		16F492295D55F156C632C5D1 /* DocumentImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentImport.swift; sourceTree = "<group>"; };
+		3125A14820D97CD4A1491AB7 /* GradeWiseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeWiseApp.swift; sourceTree = "<group>"; };
+		4E2FF6FAFD37351E3183DBEE /* ReviewViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViews.swift; sourceTree = "<group>"; };
+		5002F7E0D4D12B95A775B90E /* DocumentViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViews.swift; sourceTree = "<group>"; };
+		52476827F97B05CB6430514C /* GradeWise.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = GradeWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60AACC17E611BC4CB7596E35 /* WorkspaceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceStore.swift; sourceTree = "<group>"; };
+		635A1AB6FEB03A914ABF36DD /* GradeWiseUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = GradeWiseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B1C8C8BB18CB2AC694B331E /* FirebaseInference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseInference.swift; sourceTree = "<group>"; };
+		8B089BC69C9947F46B122DE7 /* roots.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = roots.json; sourceTree = "<group>"; };
+		B515687C31D8F199985D610A /* GradeWiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeWiseTests.swift; sourceTree = "<group>"; };
+		B5C9DB18D13BB714BF435563 /* WorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceView.swift; sourceTree = "<group>"; };
+		B5DA06289BA221563385AB7E /* rubric-response.v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "rubric-response.v1.json"; sourceTree = "<group>"; };
+		BD0605AEFDB3FDACC5927899 /* WorkspaceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceModels.swift; sourceTree = "<group>"; };
+		C746260F206EDD7A7B282A36 /* GradingContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingContract.swift; sourceTree = "<group>"; };
+		CEA6016EFBC91EE8EBB3951B /* GradingPrompts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingPrompts.swift; sourceTree = "<group>"; };
+		D04E7A8E07FBCC0D8D1AE1C8 /* GradeWiseTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = GradeWiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D287A2BC0CDDC97075757F16 /* question-paper.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "question-paper.txt"; sourceTree = "<group>"; };
+		D7EA740CA16A53394EF473DE /* roots.v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = roots.v1.json; sourceTree = "<group>"; };
+		DA0A9754F1A1885147EB2B23 /* grading-result.v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "grading-result.v1.json"; sourceTree = "<group>"; };
+		E32F765157815A714473A1C9 /* instructions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = instructions.json; sourceTree = "<group>"; };
+		E7A5ABF996F88FE5F7E5729C /* answer-key.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "answer-key.txt"; sourceTree = "<group>"; };
+		E9A27EB4FE9D0415BD564E81 /* SampleExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleExam.swift; sourceTree = "<group>"; };
+		F56FEEF394262CADED48B5CE /* GradingPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingPolicy.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0DACF850116F7661B8DCACE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E7A99D557A196023DDF0772 /* FirebaseAILogic in Frameworks */,
+				3A99A18CA8D02D1F90285601 /* FirebaseAppCheck in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05C95C689F3763CF7890EF16 /* schemas */ = {
+			isa = PBXGroup;
+			children = (
+				DA0A9754F1A1885147EB2B23 /* grading-result.v1.json */,
+				B5DA06289BA221563385AB7E /* rubric-response.v1.json */,
+			);
+			name = schemas;
+			path = ../../shared/schemas;
+			sourceTree = "<group>";
+		};
+		4D18C4B9FEA0602042B03819 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0CDF196871764239D326E10D /* GradeWiseUITests.swift */,
+			);
+			name = UI;
+			path = Tests/UI;
+			sourceTree = "<group>";
+		};
+		7C0A2723A3A41CFA30D58267 /* GradeWise */ = {
+			isa = PBXGroup;
+			children = (
+				16F492295D55F156C632C5D1 /* DocumentImport.swift */,
+				5002F7E0D4D12B95A775B90E /* DocumentViews.swift */,
+				7B1C8C8BB18CB2AC694B331E /* FirebaseInference.swift */,
+				3125A14820D97CD4A1491AB7 /* GradeWiseApp.swift */,
+				C746260F206EDD7A7B282A36 /* GradingContract.swift */,
+				F56FEEF394262CADED48B5CE /* GradingPolicy.swift */,
+				CEA6016EFBC91EE8EBB3951B /* GradingPrompts.swift */,
+				4E2FF6FAFD37351E3183DBEE /* ReviewViews.swift */,
+				E9A27EB4FE9D0415BD564E81 /* SampleExam.swift */,
+				BD0605AEFDB3FDACC5927899 /* WorkspaceModels.swift */,
+				60AACC17E611BC4CB7596E35 /* WorkspaceStore.swift */,
+				B5C9DB18D13BB714BF435563 /* WorkspaceView.swift */,
+			);
+			path = GradeWise;
+			sourceTree = "<group>";
+		};
+		A535B93B9B76E2F6E6D5BE88 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				B515687C31D8F199985D610A /* GradeWiseTests.swift */,
+			);
+			name = Unit;
+			path = Tests/Unit;
+			sourceTree = "<group>";
+		};
+		B8E4BEAAFFFB53644B92FBB4 = {
+			isa = PBXGroup;
+			children = (
+				F7D3224BE0DD4E3C87A904B8 /* benchmarks */,
+				DC55906C802C745AF25EA61F /* fixtures */,
+				7C0A2723A3A41CFA30D58267 /* GradeWise */,
+				C2A6F48588B90048D34F7865 /* prompts */,
+				C8D96D51E7941C8C9F65D3AB /* rubrics */,
+				05C95C689F3763CF7890EF16 /* schemas */,
+				4D18C4B9FEA0602042B03819 /* UI */,
+				A535B93B9B76E2F6E6D5BE88 /* Unit */,
+				FA6D7AA27D4642DC6CF37A8A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C2A6F48588B90048D34F7865 /* prompts */ = {
+			isa = PBXGroup;
+			children = (
+				E32F765157815A714473A1C9 /* instructions.json */,
+			);
+			name = prompts;
+			path = ../../shared/prompts;
+			sourceTree = "<group>";
+		};
+		C8D96D51E7941C8C9F65D3AB /* rubrics */ = {
+			isa = PBXGroup;
+			children = (
+				D7EA740CA16A53394EF473DE /* roots.v1.json */,
+			);
+			name = rubrics;
+			path = ../../shared/rubrics;
+			sourceTree = "<group>";
+		};
+		DC55906C802C745AF25EA61F /* fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				E7A5ABF996F88FE5F7E5729C /* answer-key.txt */,
+				D287A2BC0CDDC97075757F16 /* question-paper.txt */,
+			);
+			name = fixtures;
+			path = ../../tests/fixtures;
+			sourceTree = "<group>";
+		};
+		F7D3224BE0DD4E3C87A904B8 /* benchmarks */ = {
+			isa = PBXGroup;
+			children = (
+				8B089BC69C9947F46B122DE7 /* roots.json */,
+			);
+			name = benchmarks;
+			path = ../../tests/benchmarks;
+			sourceTree = "<group>";
+		};
+		FA6D7AA27D4642DC6CF37A8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52476827F97B05CB6430514C /* GradeWise.app */,
+				D04E7A8E07FBCC0D8D1AE1C8 /* GradeWiseTests.xctest */,
+				635A1AB6FEB03A914ABF36DD /* GradeWiseUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B81B1C214D6D3DF6E287175 /* GradeWiseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5FA97C8DDFC7E9264757E41 /* Build configuration list for PBXNativeTarget "GradeWiseTests" */;
+			buildPhases = (
+				34D62B315ADC328545057F61 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A822516E0F18DF6A8678C2CF /* PBXTargetDependency */,
+			);
+			name = GradeWiseTests;
+			packageProductDependencies = (
+			);
+			productName = GradeWiseTests;
+			productReference = D04E7A8E07FBCC0D8D1AE1C8 /* GradeWiseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		675FE54C453B270C5F7252B3 /* GradeWise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74D54272D0AA3258740A1FA2 /* Build configuration list for PBXNativeTarget "GradeWise" */;
+			buildPhases = (
+				72C6F300582F63ADE0DFFF98 /* Sources */,
+				96AAB92EC38CAEBFA6E5E95F /* Resources */,
+				0DACF850116F7661B8DCACE0 /* Frameworks */,
+				ACB28A51F094A8F520B0A662 /* Embed local Firebase configuration */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GradeWise;
+			packageProductDependencies = (
+				9C3791EE679502A7DF1005A1 /* FirebaseAILogic */,
+				2F9E10B89B0C153335AF20F0 /* FirebaseAppCheck */,
+			);
+			productName = GradeWise;
+			productReference = 52476827F97B05CB6430514C /* GradeWise.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7214B588A6D62B2BDF879ED7 /* GradeWiseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17ABAEBAFCAAE3E58AE1B4A2 /* Build configuration list for PBXNativeTarget "GradeWiseUITests" */;
+			buildPhases = (
+				5E809319EF40F63D52492CE2 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E0277F9B7D1A651B810BF68 /* PBXTargetDependency */,
+			);
+			name = GradeWiseUITests;
+			packageProductDependencies = (
+			);
+			productName = GradeWiseUITests;
+			productReference = 635A1AB6FEB03A914ABF36DD /* GradeWiseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6385F185240658FA17E6B950 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2650;
+				TargetAttributes = {
+					3B81B1C214D6D3DF6E287175 = {
+						DevelopmentTeam = "";
+					};
+					675FE54C453B270C5F7252B3 = {
+						DevelopmentTeam = "";
+					};
+					7214B588A6D62B2BDF879ED7 = {
+						DevelopmentTeam = "";
+						TestTargetID = 675FE54C453B270C5F7252B3;
+					};
+				};
+			};
+			buildConfigurationList = 7AD8D2636E03DB096AA70D0E /* Build configuration list for PBXProject "GradeWise" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = B8E4BEAAFFFB53644B92FBB4;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D3644C0103CDB2996DF84971 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FA6D7AA27D4642DC6CF37A8A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				675FE54C453B270C5F7252B3 /* GradeWise */,
+				3B81B1C214D6D3DF6E287175 /* GradeWiseTests */,
+				7214B588A6D62B2BDF879ED7 /* GradeWiseUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96AAB92EC38CAEBFA6E5E95F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75D0A5B9625AF41FA3CFB75C /* answer-key.txt in Resources */,
+				238315B73185B6F06B8AC25C /* grading-result.v1.json in Resources */,
+				545DC2C9C8913EBD768E14E4 /* instructions.json in Resources */,
+				457026A37AAFBC289B3FCA6C /* question-paper.txt in Resources */,
+				8A89974F11364FC8B90BB9EC /* roots.json in Resources */,
+				F12DFD355FA801CDFB865004 /* roots.v1.json in Resources */,
+				2728471A45D67811D53ADC7D /* rubric-response.v1.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ACB28A51F094A8F520B0A662 /* Embed local Firebase configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Embed local Firebase configuration";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\nset -eu\n\nsource_plist=\"$SRCROOT/GoogleService-Info.plist\"\ndestination=\"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/GoogleService-Info.plist\"\nif [ -f \"$source_plist\" ]; then\n  /usr/bin/plutil -lint \"$source_plist\" >/dev/null\n  /bin/cp \"$source_plist\" \"$destination\"\nelse\n  /bin/rm -f \"$destination\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		34D62B315ADC328545057F61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84D2036FD31EA2A92CB3DEF9 /* GradeWiseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E809319EF40F63D52492CE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D1263FCF62023C591A479B2 /* GradeWiseUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72C6F300582F63ADE0DFFF98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBAD18700808571E1FB8F4C9 /* DocumentImport.swift in Sources */,
+				48B642254C4EDA17A8BBF4A0 /* DocumentViews.swift in Sources */,
+				03566009B3A3E79CD97B1F24 /* FirebaseInference.swift in Sources */,
+				F02FA54637007881120DA9F3 /* GradeWiseApp.swift in Sources */,
+				3475264C8CD48C68DC5754E3 /* GradingContract.swift in Sources */,
+				440E32F4F804EFAC97D5E5CA /* GradingPolicy.swift in Sources */,
+				30532A447CBFBBAF14FB3139 /* GradingPrompts.swift in Sources */,
+				D3E341848210683A0DD6C94D /* ReviewViews.swift in Sources */,
+				DA98151FF1EBEA4D05BE7CF1 /* SampleExam.swift in Sources */,
+				90FBD477663A2F1CDBB2B702 /* WorkspaceModels.swift in Sources */,
+				5EFA00F131ED72AFE986C37B /* WorkspaceStore.swift in Sources */,
+				29EF1F263A77E3BCF5682807 /* WorkspaceView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2E0277F9B7D1A651B810BF68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 675FE54C453B270C5F7252B3 /* GradeWise */;
+			targetProxy = 4FECBC0DAE28E606B6C328A7 /* PBXContainerItemProxy */;
+		};
+		A822516E0F18DF6A8678C2CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 675FE54C453B270C5F7252B3 /* GradeWise */;
+			targetProxy = E0BC411AC724156F553F6EC7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4C7AE8F4C1BAF499A06C8543 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		60A34B6A47E844C286FD99CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "GradeWise AI";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.gradewise.ios;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		69167F65E5BBAB4FFD7E761F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		93EB72FE7DE6A7A193F1806A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.gradewise.ios.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GradeWise;
+			};
+			name = Debug;
+		};
+		98D9733F39FD2040C7DACBCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.gradewise.ios.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GradeWise;
+			};
+			name = Release;
+		};
+		C499FE8984EF2B71EA2DB90D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.gradewise.ios.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GradeWise.app/GradeWise";
+			};
+			name = Release;
+		};
+		D07D7C8B4FA199363CC4C998 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.gradewise.ios.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GradeWise.app/GradeWise";
+			};
+			name = Debug;
+		};
+		E4A5BE428FEFEAB0FEFDB644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GradeWiseRelease.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "GradeWise AI";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.gradewise.ios;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17ABAEBAFCAAE3E58AE1B4A2 /* Build configuration list for PBXNativeTarget "GradeWiseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93EB72FE7DE6A7A193F1806A /* Debug */,
+				98D9733F39FD2040C7DACBCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		74D54272D0AA3258740A1FA2 /* Build configuration list for PBXNativeTarget "GradeWise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60A34B6A47E844C286FD99CE /* Debug */,
+				E4A5BE428FEFEAB0FEFDB644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7AD8D2636E03DB096AA70D0E /* Build configuration list for PBXProject "GradeWise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69167F65E5BBAB4FFD7E761F /* Debug */,
+				4C7AE8F4C1BAF499A06C8543 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A5FA97C8DDFC7E9264757E41 /* Build configuration list for PBXNativeTarget "GradeWiseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D07D7C8B4FA199363CC4C998 /* Debug */,
+				C499FE8984EF2B71EA2DB90D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3644C0103CDB2996DF84971 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = exactVersion;
+				version = 12.19.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2F9E10B89B0C153335AF20F0 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3644C0103CDB2996DF84971 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		9C3791EE679502A7DF1005A1 /* FirebaseAILogic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3644C0103CDB2996DF84971 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAILogic;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 6385F185240658FA17E6B950 /* Project object */;
+}
