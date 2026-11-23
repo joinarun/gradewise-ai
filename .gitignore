@@ -18,8 +18,10 @@ local.properties
 .DS_Store
 .gradle/
 build/
+Build/
 DerivedData/
 .build/
+Build/
 xcuserdata/
 *.xcuserstate
 *.jks

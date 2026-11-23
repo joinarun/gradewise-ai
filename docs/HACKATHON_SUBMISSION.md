@@ -29,3 +29,41 @@ Replace any unverified shot with a factual caption. Capture the dashboard, pack 
 - [ ] Hosted demo opened and checked as a new user
 - [ ] Public YouTube URL with English narration or subtitles
 - [ ] Devpost description, repository link, and selected platform categories
+
+## Narration draft
+
+### 0:00–0:20
+
+“After an exam, a teacher has to apply the same marking scheme to dozens of different answers. Sending every answer to a cloud model adds requests and makes grading depend on a connection. GradeWise starts with a marking scheme the teacher can inspect.”
+
+### 0:20–0:50
+
+“I’m using a synthetic science exam. I upload the question paper and answer key once. Cloud Gemini turns them into a grading pack with marks, acceptable alternatives, and rules for partial credit. I check the totals and approve the pack before collecting answers.”
+
+*Capture a live Firebase cloud rubric request after provider enablement.*
+
+### 0:50–1:20
+
+“This answer says roots ‘take water from the soil’ and ‘keep the plant fixed.’ The model can recognize the two ideas when students use different words. Each awarded mark still needs evidence quoted from the answer. The source badge identifies the model that produced the result.”
+
+*Capture a verified on-device result and show its actual score and source.*
+
+### 1:20–1:55
+
+“With the approved rubric already on this device, I can keep working offline where a local model is available. When a proposal fails validation or remains uncertain, GradeWise queues it for review. After reconnecting I can explicitly permit cloud evaluation of this synthetic answer and compare the model attempts.”
+
+*Use a real network-off capture and show the consent screen before any cloud request.*
+
+### 1:55–2:25
+
+“I can see the question, the response, and how each criterion was scored. I’m changing this mark before finalizing it. The export contains finalized scores. Insights show observed model sources and estimate avoided cloud charges using the configured model’s token rates.”
+
+*Use the local clip as a recording reference. Insert benchmark numbers only from a measured run.*
+
+### 2:25–2:55
+
+“This is the same teacher flow on each demonstrated platform. Firebase AI Logic routes to a supported device model, with a consented Gemini cloud path for eligible cases. The source, instructions, synthetic exam, and checks are available in the project repository.”
+
+*Show platform footage from builds that ran successfully. Replace the repository end card with the actual published URL.*
+
+The reproducible local clip shows synthetic rubric inspection, teacher scoring, and CSV export. Run the production preview on port 4173, then run `node scripts/record-demo.mjs`. The clip is available under `artifacts/demo/` and can be edited into the final recording.
