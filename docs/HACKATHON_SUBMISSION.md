@@ -4,9 +4,31 @@ Deadline is November 30, 2026 at 2:00 p.m. PST, or December 1 at 3:30 a.m. IST. 
 
 ## Project description draft
 
-Teachers need a consistent, explainable way to apply a marking scheme across an entire class. GradeWise AI creates an editable rubric using cloud Gemini through Firebase AI Logic, then attempts to grade individual answers with an on-device model. Every awarded criterion needs a quote from the answer. The app can send an unresolved answer to Gemini when a teacher opts in. Teachers review provisional marks and decide what becomes final.
+**Tagline** · Cloud rubrics. Offline grading. Teachers in control.
 
-The implementation focuses on two problems. The same marking scheme has to travel across platforms, and device-model availability alone cannot determine whether a proposed score is trustworthy. A versioned grading pack, application-level validation, and explicit routing address those problems. Future work includes evaluating more subjects and question formats, validating handwriting workflows, and adding institution-managed accounts and storage.
+### Inspiration
+
+Teachers apply the same marking scheme to dozens of answers expressed in different ways. GradeWise AI lets them prepare that scheme once, reuse it on their device, and spend their review time on the answers that need judgment.
+
+### What it does
+
+A teacher uploads an exam paper and answer key. Cloud Gemini uses Firebase AI Logic to create an editable grading pack with marks, acceptable alternatives, and partial-credit rules. The teacher approves the pack before grading. On compatible Chrome desktops, Gemini Nano grades answers on-device, including offline. GradeWise AI checks mark bounds and requires a quote from the answer to support awarded credit. When a case is unresolved, the teacher can review it directly or explicitly authorize a cloud Gemini request. Teachers can confirm, adjust, or reject proposed scores and export finalized results.
+
+### How we built it
+
+The React and TypeScript PWA keeps exams in IndexedDB and caches its app shell for offline use. The app reports the model source from Firebase AI Logic responses, and App Check protects cloud requests. The Kotlin and Jetpack Compose Android client and the SwiftUI iOS client use the same versioned grading contract. Android and iOS cloud workflows ran on an emulator and a simulator. Native on-device inference still needs compatible physical-device verification.
+
+### What we verified
+
+Chrome graded six scored synthetic cases offline. Three results passed validation and matched the teacher scores. The other three went to review. Cloud Gemini returned five results for the same cases. Four matched, one differed, and the sixth request returned a provider error. On the hosted app, we verified offline grading with an approved rubric and separately verified consented cloud fallback with production App Check.
+
+### What we learned and what’s next
+
+Model availability tells us where inference can run. Mark bounds, answer evidence, and teacher review determine which proposals can move forward. Next we’ll verify on-device grading on physical mobile devices, expand the benchmark across subjects, and evaluate handwriting recognition.
+
+### Testing instructions
+
+Open the [hosted app](https://gradewise-ai-2026.web.app/) in desktop Chrome and choose **Explore a sample**. The sample includes an approved rubric and synthetic answers. Use **Settings** to prepare the device model on a compatible system. Grade a sample answer, inspect the model source and evidence, and finalize the score. Use synthetic text when trying optional cloud fallback.
 
 ## Recording plan
 
@@ -25,10 +47,12 @@ Replace any unverified shot with a factual caption. Capture the dashboard, pack 
 
 - [x] Working Firebase AI Logic runtime and source attribution
 - [x] Recorded genuine web local and cloud behavior and captured the native workspaces
-- [ ] Public repository approved and published with Apache 2.0 license
+- [x] [Public repository](https://github.com/joinarun/gradewise-ai) published with Apache 2.0 license
 - [x] Hosted demo opened and checked as a new user
 - [ ] Public YouTube URL with English narration or subtitles
 - [ ] Devpost description, repository link, and selected platform categories
+
+For the Devpost platform selection, use **Web / Chrome**, where both offline device grading and cloud fallback were verified. The Android and iOS builds provide supplementary evidence. Native on-device inference still needs verification on compatible physical devices.
 
 ## Narration draft
 

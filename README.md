@@ -6,7 +6,11 @@ GradeWise AI helps teachers apply an approved marking scheme across an entire cl
 
 [Verified offline grade](apps/web/screenshots/offline-grade.png) · [Android workspace](apps/android/screenshots/teacher-workspace.png) · [iOS workspace](apps/ios/screenshots/teacher-workspace.png)
 
-[Open the hosted demo](https://gradewise-ai-2026.web.app/)
+[Open the hosted demo](https://gradewise-ai-2026.web.app/) in desktop Chrome and choose **Explore a sample**. The sample includes a reviewed rubric and synthetic student answers.
+
+1. Open **Settings** and prepare the device model on a compatible computer.
+2. Grade a sample answer, then inspect the model source and the quotes supporting its proposed marks.
+3. Review and finalize the score, then export the finalized results. Use synthetic answers when trying the optional cloud fallback.
 
 ## Try the teacher workspace
 
