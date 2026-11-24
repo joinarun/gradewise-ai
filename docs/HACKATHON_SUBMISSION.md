@@ -49,8 +49,9 @@ Replace any unverified shot with a factual caption. Capture the dashboard, pack 
 - [x] Recorded genuine web local and cloud behavior and captured the native workspaces
 - [x] [Public repository](https://github.com/joinarun/gradewise-ai) published with Apache 2.0 license
 - [x] Hosted demo opened and checked as a new user
-- [ ] Public YouTube URL with English narration or subtitles
-- [ ] Devpost description, repository link, and selected platform categories
+- [x] [Public YouTube demo](https://youtu.be/2ObPnp4TkxA) with English narration
+- [x] Devpost draft with description, repository link, and selected platform
+- [ ] Final Devpost submission
 
 For the Devpost platform selection, use **Web / Chrome**, where both offline device grading and cloud fallback were verified. The Android and iOS builds provide supplementary evidence. Native on-device inference still needs verification on compatible physical devices.
 
@@ -94,6 +95,6 @@ The reproducible local clip shows synthetic rubric inspection, teacher scoring, 
 
 ## Recorded demonstration
 
-The 1:38 English-narrated MP4 is generated at `artifacts/GradeWise-AI-Hackathon-Demo.mp4`. It includes actual local cloud rubric generation and consented fallback, hosted offline device grading, teacher review and export, and screenshots of both native workspaces. The public YouTube upload and Devpost entry remain pending.
+The [1:38 English-narrated demo](https://youtu.be/2ObPnp4TkxA) was published on YouTube. The MP4 is generated at `artifacts/GradeWise-AI-Hackathon-Demo.mp4`. It includes cloud rubric generation and consented fallback captured on the local web build, hosted offline device grading, teacher review and export, and screenshots of both native workspaces.
 
 To reproduce the edit on macOS with FFmpeg and the Samantha voice, pass the successful cloud and offline recordings and the teacher-review clip to `scripts/assemble-demo.sh`. The `cloud-workspace` and `workspace` benchmark modes accept `GRADEWISE_WORKSPACE_VIDEO` for capturing fresh clips.

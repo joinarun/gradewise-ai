@@ -18,6 +18,8 @@
 
 The configured Spark project is `gradewise-ai-2026`. Billing is disabled. Its public site is [GradeWise AI](https://gradewise-ai-2026.web.app/). Local end-to-end web verification created and approved a two-question rubric, obtained a Firebase-reported cloud fallback grade of 2/2 with consent, and saved the final score across a reload. The production site also completed a genuine on-device grade, approval, and reload while offline. A separate hosted run returned a protected cloud fallback grade of 2/2 and accepted teacher approval using production App Check. Hosted rubric requests returned Gemini high-demand HTTP 500 responses during verification. The same rubric workflow succeeded locally.
 
+After the Gemini APIs were re-enabled for publication, regular desktop Chrome returned an on-device proposal of 2/2 and a cloud proposal of 1/2 for two different synthetic sample answers. Fresh automated browser contexts received App Check HTTP 401 responses before inference, so the hosted cloud recheck used the normal Chrome flow with App Check enforcement active.
+
 Android and iOS both verified Gemini 3.5 Flash-Lite and SDK App Check. The Android emulator reports Gemini Nano unavailable. The Apple model runtime failed the iOS device-only probe despite reporting readiness, while SDK fallback returned Cloud. Physical device verification remains open.
 
 ## Synthetic offline benchmark
